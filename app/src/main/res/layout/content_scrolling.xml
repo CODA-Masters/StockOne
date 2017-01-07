@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeContainer"
+    android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.codamasters.stockone.ui.MainActivity"
+    tools:showIn="@layout/activity_scrolling">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <net.mskurt.neveremptylistviewlibrary.NeverEmptyListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            custom:holderTextTopMargin="20dp"
+            custom:holderBackgroundColor="#ffffff"
+            custom:holderTextFontSize="9sp"
+            custom:holderTextColor="#000000"
+            custom:holderImageSize="120dp"
+            custom:holderText="Search for Penny Stocks"
+            custom:holderImageBackground="@drawable/stock"/>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+
+
