@@ -13,11 +13,12 @@
     tools:showIn="@layout/activity_scrolling">
 
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true" >
 
-        <net.mskurt.neveremptylistviewlibrary.NeverEmptyListView
+        <!--<net.mskurt.neveremptylistviewlibrary.NeverEmptyListView
             android:id="@+id/listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -28,6 +29,14 @@
             custom:holderImageSize="120dp"
             custom:holderText="Search for Penny Stocks"
             custom:holderImageBackground="@drawable/stock"/>
+        -->
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
 
     </android.support.v4.widget.NestedScrollView>
 

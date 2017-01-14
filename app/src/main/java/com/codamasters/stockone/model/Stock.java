@@ -8,12 +8,13 @@ public class Stock {
 
     private String symbol;
     private String date;
+    private float current;
     private float open;
     private float high;
     private float low;
     private float close;
-    private int volume;
-    private float percentage;
+    private long volume;
+    private String percentage;
 
     public Stock(){
 
@@ -33,6 +34,14 @@ public class Stock {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public float getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(float current) {
+        this.current = current;
     }
 
     public float getOpen() {
@@ -67,19 +76,19 @@ public class Stock {
         this.close = close;
     }
 
-    public int getVolume() {
+    public long getVolume() {
         return volume;
     }
 
-    public void setVolume(int volume) {
+    public void setVolume(long volume) {
         this.volume = volume;
     }
 
-    public float getPercentage() {
+    public String getPercentage() {
         return percentage;
     }
 
-    public void setPercentage(float percentage) {
+    public void setPercentage(String percentage) {
         this.percentage = percentage;
     }
 }

@@ -1,11 +1,13 @@
 package com.codamasters.stockone.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +18,7 @@ import com.afollestad.materialdialogs.GravityEnum;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.codamasters.stockone.R;
 import com.codamasters.stockone.adapter.StockAdapter;
+import com.codamasters.stockone.adapter.StockRecAdapter;
 import com.codamasters.stockone.model.Stock;
 import com.codamasters.stockone.tasks.OnSearchTaskCompleted;
 import com.codamasters.stockone.tasks.SearchTask;
@@ -30,7 +33,11 @@ public class MainActivity extends AppCompatActivity implements OnSearchTaskCompl
     private SwipeRefreshLayout swipeContainer;
     private FloatingActionButton searchFab;
     private NeverEmptyListView neverEmptyListView;
+    private NestedScrollView nestedScrollView;
     private String searchError;
+
+    private StockRecAdapter stockRecAdapter;
+    private RecyclerView recyclerView;
 
 
     @Override
@@ -80,7 +87,25 @@ public class MainActivity extends AppCompatActivity implements OnSearchTaskCompl
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
-        neverEmptyListView = (NeverEmptyListView) findViewById(R.id.listview);
+//        neverEmptyListView = (NeverEmptyListView) findViewById(R.id.listview);
+
+        nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView);
+//        nestedScrollView.setNestedScrollingEnabled(true);
+
+        recyclerView = (RecyclerView) findViewById(R.id.listview);
+
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+
+        stockRecAdapter = new StockRecAdapter(this, R.layout.item_stock, new ArrayList<Stock>());
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(stockRecAdapter);
+
+
+
     }
 
 
@@ -107,14 +132,14 @@ public class MainActivity extends AppCompatActivity implements OnSearchTaskCompl
 
         ArrayList<Stock> stocks = new ArrayList<>();
         StockAdapter adapter = new StockAdapter(this, stocks);
-        neverEmptyListView.setAdapter(adapter);
+       // neverEmptyListView.setAdapter(adapter);
 
-        neverEmptyListView.setHolderClickListener(new View.OnClickListener() {
+       /* neverEmptyListView.setHolderClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showSearchOptions();
             }
-        });
+        });*/
     }
 
 
@@ -163,8 +188,17 @@ public class MainActivity extends AppCompatActivity implements OnSearchTaskCompl
 
         // Guardamos el array y lo cargamos en la lista
 
-        StockAdapter adapter = new StockAdapter(this, stocks);
-        neverEmptyListView.setAdapter(adapter);
+        //StockAdapter adapter = new StockAdapter(this, stocks);
+        //neverEmptyListView.setAdapter(adapter);
+
+        stockRecAdapter = new StockRecAdapter(this, R.layout.item_stock, stocks);
+
+
+        recyclerView.setHasFixedSize(true);
+
+
+        recyclerView.setAdapter(stockRecAdapter);
+
 
     }
 }

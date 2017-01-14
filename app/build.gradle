@@ -33,15 +33,22 @@ dependencies {
     // ListView
     compile 'com.github.mskurt:NeverEmptyListView:v1.0.1'
 
+    // RecyclerView
+    compile 'com.android.support:recyclerview-v7:+'
+
     // RangeBar for Dialogs
     compile 'com.appyvet:materialrangebar:1.3'
 
     // Stats
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.1'
 
+    //volley
+    compile 'com.android.volley:volley:1.0.0'
 
-
+    //Jsoo
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.9.2'
 
     testCompile 'junit:junit:4.12'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'
+    compile 'com.android.support.test.espresso:espresso-core:2.2.2'
 }
