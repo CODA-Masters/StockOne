@@ -42,6 +42,8 @@ dependencies {
     //volley
     compile 'com.android.volley:volley:1.0.0'
 
+    //Jsoo
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.9.2'
 
     testCompile 'junit:junit:4.12'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'

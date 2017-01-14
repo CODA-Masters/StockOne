@@ -35,6 +35,13 @@ public class StockAdapter extends ArrayAdapter<Stock> {
         convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_stock, parent, false);
 
         ((TextView) convertView.findViewById(R.id.symbol)).setText(stock.getSymbol());
+        ((TextView) convertView.findViewById(R.id.date)).setText(stock.getDate());
+        ((TextView) convertView.findViewById(R.id.open)).setText(String.valueOf(stock.getOpen()));
+        ((TextView) convertView.findViewById(R.id.higt)).setText(String.valueOf(stock.getHigh()));
+        ((TextView) convertView.findViewById(R.id.low)).setText(String.valueOf(stock.getLow()));
+        ((TextView) convertView.findViewById(R.id.close)).setText(String.valueOf(stock.getLow()));
+        ((TextView) convertView.findViewById(R.id.volume)).setText(String.valueOf(stock.getVolume()));
+        ((TextView) convertView.findViewById(R.id.percentage)).setText(String.valueOf(stock.getPercentage()));
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
